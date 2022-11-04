@@ -16,45 +16,30 @@ public class Alarm : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private IEnumerator IncreaseVolume()
-    {
-        _audioSource.volume = _minVolume;
-        _audioSource.Play();
-
-        while (_audioSource.volume < _maxVolume)
-        {
-            ChangeVolume(_maxVolume);
-            yield return null;
-        }
-    }
-
-    private IEnumerator DecreaseVolume()
+    private IEnumerator ChangeVolume(float targetVolume)
     {
         _audioSource.Play();
 
-        while (_audioSource.volume > _minVolume)
+        while(_audioSource.volume != targetVolume)
         {
-            ChangeVolume(_minVolume);
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetVolume, _changeVolumeSpeed * Time.deltaTime);
             yield return null;
         }
-        _audioSource.Stop();
-    }
-
-    private void ChangeVolume(float targetVolume)
-    {
-        _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetVolume, _changeVolumeSpeed * Time.deltaTime);
     }
 
     public void SwitchOn()
     {
         TryStopCoroutine();
-        _currentCoroutine = StartCoroutine(IncreaseVolume());
+        _audioSource.volume = _minVolume;
+        _currentCoroutine = StartCoroutine(ChangeVolume(_maxVolume));
     }
 
     public void SwitchOff()
     {
         TryStopCoroutine();
-        _currentCoroutine = StartCoroutine(DecreaseVolume());
+        _currentCoroutine = StartCoroutine(ChangeVolume(_minVolume));
+        if(_audioSource.volume == _minVolume)
+            _audioSource.Stop();
     }
 
     private void TryStopCoroutine()

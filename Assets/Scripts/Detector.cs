@@ -8,13 +8,13 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Robber>(out Robber robber))
+        if (collision.TryGetComponent<RobberMover>(out RobberMover robber))
             _onInside?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Robber>(out Robber robber))
+        if (collision.TryGetComponent<RobberMover>(out RobberMover robber))
             _onOutside?.Invoke();
     }
 }

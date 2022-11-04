@@ -887,8 +887,9 @@ GameObject:
   - component: {fileID: 1072959291}
   - component: {fileID: 1072959294}
   - component: {fileID: 1072959290}
+  - component: {fileID: 1072959296}
+  - component: {fileID: 1072959295}
   - component: {fileID: 1072959293}
-  - component: {fileID: 1072959292}
   m_Layer: 0
   m_Name: Robber
   m_TagString: Untagged
@@ -971,7 +972,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1947710410, guid: 88f35e377fe6da44eb2b0b1b8dc0d622, type: 3}
   m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   m_FlipX: 0
@@ -983,21 +984,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1072959292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072959288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3f12c94d5fceb49ba64cb85d77eae7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1.5
-  _minPositionX: -8
-  _maxPositionX: 6
 --- !u!82 &1072959293
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1120,6 +1106,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8390932, y: 1.8166667}
   m_EdgeRadius: 0
+--- !u!114 &1072959295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072959288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5106d3dcd73c6f944b64f4c9a38cb8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _minPositionX: -8
+  _maxPositionX: 6
+--- !u!114 &1072959296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072959288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55aa8d436c765be4d89f6b414806d406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1094377821
 GameObject:
   m_ObjectHideFlags: 0
